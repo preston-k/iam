@@ -101,6 +101,7 @@ thead {
 }
 #infotable-tools {
   width: 100%;
+  display: flex;
 }
 .card {
   width: 17%;

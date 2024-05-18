@@ -90,7 +90,7 @@ document.querySelector('#code').addEventListener('submit', (event) => {
       // USER IS SUCESSFULLY AUTHENTICATED: (EVERYTHING SHOULD HAPPEN IN THIS LOOP)
       let current = document.querySelector('#options')
       let add = ''
-      add += '<a href=\'javascript:userDataTable()\'><div id=\'cardholder\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-regular fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></div></a>'
+      add += '<div id=\'cardholder\'><a href=\'javascript:userDataTable()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></a><a href=\'javascript:()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-list fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>View Recent Events</h1><p class=\'cardp\'>Generate a list of recent events that occured in the system.</p></div></div></a></div>'
       current.innerHTML = add
     })
     .catch(error => alert(error.message))

@@ -7,6 +7,7 @@
   <title>Console -- IAM.PRESTONKWEI.COM</title>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins'/>
   <link rel='icon' href='https://cdn.prestonkwei.com/personalwebsitefavicon.png'>
+
   <link href='style.css' rel='stylesheet' type='text/css' />
   <meta name='robots' content='noindex'>
 </head>
@@ -31,6 +32,13 @@
     </form>
     <div id='last'>
       <u><p>What would you like to do today?</p></u>
+      <div id='options'></div>
+      <div id='userinfotable'>
+        <div id='infotable-tools'>
+          <p id='timestamp-userinfo'></p>
+          <p id='closeUserTable'>Close</p>
+        </div>
+      </div>
     </div>
   </div>
   
@@ -38,6 +46,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
   <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  
   <script>
     document.addEventListener('DOMContentLoaded', (event) => {
       if (sessionStorage.getItem('loggedin') != 'true') {

@@ -5,15 +5,25 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Identity and Access Management -- IAM.PRESTONKWEI.COM</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins'/>
+  <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins'/> -->
   <link rel='icon' href='https://cdn.prestonkwei.com/personalwebsitefavicon.png'>
 <link href='style.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
-  <h1>Identity and Access Management</h1>
-  <script src='script.js'></script>
+  <u><h1>Identity and Access Management</h1></u>
+  <p>You are trying to access a protected area. Please enter your credentials below to continue.</p>
+  <form id='credentials'>
+    <input type='email' class='loginbox' placeholder='Email' id='email' required autocomplete='off'></input>
+    <input type='password' class='loginbox' placeholder='Password' id='password' required autocomplete='off'></input>
+    <input type='password' class='loginbox' placeholder='Auth Token' id='authid' required autocomplete='off'></input>
+    <input type='image' src='https://cdn.prestonkwei.com/lock-icon.outline.png' id='homeicon' >
+  </form>
+  
   <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <script src='script.js'></script>
 </head>
 </body>
 </html>

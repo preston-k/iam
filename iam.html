@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Console -- IAM.PRESTONKWEI.COM</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins'/>
+  <link rel='icon' href='https://cdn.prestonkwei.com/personalwebsitefavicon.png'>
+  <link href='style.css' rel='stylesheet' type='text/css' />
+  <meta name='robots' content='noindex'>
+</head>
+
+<body>
+  <div id='noaccess'>
+    <h1>Access Denied</h1>
+    <p>Sorry, you have tried to view a page that you don't have access to! Please login again.</p>
+    <a href='/'><button>Login</button></a>
+  </div>
+  <div id='restricted'>
+    <div id='toolbar'>
+
+    </div>
+    <h1>Identity and Access Management</h1>
+    <h3 id='welcome'></h3>
+    <form id='code'>
+      <p>Please enter your 5 digit access code below.</p>
+      <input type='text' id='codeinput' required placeholder='12345'></input>
+      <br>
+      <button type='submit' class='submitbut'>Submit</button>
+    </form>
+    <div id='last'>
+      <u><p>What would you like to do today?</p></u>
+    </div>
+  </div>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      if (sessionStorage.getItem('loggedin') != 'true') {
+        if (sessionStorage.getItem('authid') == null) {
+          document.title = 'Access Denied'
+          document.querySelector('#noaccess').style.display='block'
+        } 
+      } else {
+        document.querySelector('#noaccess').style.display='none'
+        document.querySelector('#restricted').style.display='block'
+      }
+    })
+  </script>
+  <script src='iam.js'></script>
+</head>
+</body>
+</html>

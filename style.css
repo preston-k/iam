@@ -1,0 +1,60 @@
+body {
+  text-align: center;
+}
+
+#homeicon {
+  width: 100px;
+  /* min-width: 300px; */
+}
+#credentials {
+  width: 80%;
+  min-width: 350px;
+  border: 2px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  /* height: 500px; */
+  padding: 15px;
+  padding-bottom: 0px;
+}
+.loginbox {
+  width: 80%;
+  min-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 24px;
+  height: 50px;
+  border: 2px solid black;
+  margin-bottom: 5px;
+}
+#restricted {
+  display: none;
+}
+/* #noaccess {
+  display: none;
+} */
+#restricted {
+  font-family: 'Poppins', serif;
+}
+.submitbut {
+  border: 2px solid black;
+  background-color: white;
+  font-family: 'Poppins';
+}
+#codeinput {
+  width: 25%;
+  min-width: 100px;
+  height: 50px;
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-family: 'Poppins';
+  font-size: 24px;
+  text-align: center;
+}
+#last {
+  display: none;
+}

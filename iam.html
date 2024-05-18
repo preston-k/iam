@@ -7,7 +7,6 @@
   <title>Console -- IAM.PRESTONKWEI.COM</title>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins'/>
   <link rel='icon' href='https://cdn.prestonkwei.com/personalwebsitefavicon.png'>
-
   <link href='style.css' rel='stylesheet' type='text/css' />
   <meta name='robots' content='noindex'>
 </head>
@@ -25,8 +24,9 @@
     <h1>Identity and Access Management</h1>
     <h3 id='welcome'></h3>
     <form id='code'>
+      <input autocomplete="false" style='display:none;'></input>
       <p>Please enter your 5 digit access code below.</p>
-      <input type='text' id='codeinput' required placeholder='12345'></input>
+      <input type='text' id='codeinput' autocomplete='off' required placeholder='12345'></input>
       <br>
       <button type='submit' class='submitbut'>Submit</button>
     </form>
@@ -60,6 +60,7 @@
       }
     })
   </script>
+  <script src="https://kit.fontawesome.com/c947e2382a.js" crossorigin="anonymous"></script>
   <script src='iam.js'></script>
 </head>
 </body>

@@ -88,10 +88,10 @@ document.querySelector('#code').addEventListener('submit', (event) => {
       document.querySelector('#code').style.display = 'none'
       document.querySelector('#last').style.display = 'block'
       // USER IS SUCESSFULLY AUTHENTICATED: (EVERYTHING SHOULD HAPPEN IN THIS LOOP)
-      let current = document.querySelector('#options').value
-      current += '<a href="javascript:userDataTable()"><div class="card" style="width: 18rem;"> <img src="..." class="card-img-top" alt="..."> <div class="card-body"> <h5 class="card-title">Load User Data</h5> <p class="card-text">Generate a table of all user data at the moment.</p> <a href="javascript:userDataTable()" class="btn btn-primary">Generate</div> </div>'
-      document.querySelector('#options').innerHTML = current
-
+      let current = document.querySelector('#options')
+      let add = ''
+      add += '<a href=\'javascript:userDataTable()\'><div id=\'cardholder\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-regular fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></div></a>'
+      current.innerHTML = add
     })
     .catch(error => alert(error.message))
 })

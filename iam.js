@@ -79,8 +79,8 @@ document.querySelector('#code').addEventListener('submit', (event) => {
     appId: `1:401481049573:web:f1f9ca852e96d580cf3b0c`
   } 
   console.log(firebaseConfig)
-  firebase.initializeApp(firebaseConfig) 
-  database = firebase.database() 
+  let app = firebase.initializeApp(firebaseConfig, 'app')
+  database = app.database() 
   
   database.ref('temp/').set({ sessid: self.crypto.randomUUID() })
     .then(() => {
@@ -90,8 +90,10 @@ document.querySelector('#code').addEventListener('submit', (event) => {
       // USER IS SUCESSFULLY AUTHENTICATED: (EVERYTHING SHOULD HAPPEN IN THIS LOOP)
       let current = document.querySelector('#options')
       let add = ''
-      add += '<div id=\'cardholder\'><a href=\'javascript:userDataTable()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></a><a href=\'javascript:()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-list fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>View Recent Events</h1><p class=\'cardp\'>Generate a list of recent events that occured in the system.</p></div></div></a></div>'
+      add += '<div id=\'cardholder\'><a href=\'javascript:userDataTable()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></a><a href=\'javascript:()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-list fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>View Recent Events</h1><p class=\'cardp\'>Generate a list of recent events that occured in the system.</p></div></div></a><a href=\'javascript:blockIp()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-hand fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Block an IP</h1><p class=\'cardp\'>Prevent a user from accessing all sites using their IP.</p></div></div></a></div>'
       current.innerHTML = add
+
+      document.querySelector('#ipblock').innerHTML = `<h1>Block an IP Address</h1><form id='ipbanform'><input type='text' required placeholder='IP Address' class='longform' id='ipInput'></input><input type='text' id='reason' class='longform' required placeholder='Reason for Ban'></input><button type='submit' class='submitbut'>Block IP Address</button></form>`
     })
     .catch(error => alert(error.message))
 })
@@ -101,4 +103,3 @@ document.querySelector('#welcome').innerHTML = 'Welcome, Preston.'
 document.querySelector('#closeUserTable').addEventListener('click', () => {
   document.querySelector('#userinfotable').style.display = 'none'
 })
-// TESTING BELOW

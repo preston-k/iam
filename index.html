@@ -11,14 +11,14 @@
 </head>
 <body>
   <u><h1>Identity and Access Management</h1></u>
-  <p>You are trying to access a protected area. Please enter your credentials below to continue.</p>
+  <p>You are trying to access a protected area. Please enter your credentials below to continue. Fields are case sensitve.</p>
   <form id='credentials'>
     <input type='email' class='loginbox' placeholder='Email' id='email' required autocomplete='off'></input>
     <input type='password' class='loginbox' placeholder='Password' id='password' required autocomplete='off'></input>
     <input type='password' class='loginbox' placeholder='Auth Token' id='authid' required autocomplete='off'></input>
     <input type='image' src='https://cdn.prestonkwei.com/lock-icon.outline.png' id='homeicon' >
   </form>
-  
+  <p>Unauthorized access and attempts are prohibited, and all actions are logged.</p>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js'></script>
   <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>

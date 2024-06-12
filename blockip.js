@@ -27,8 +27,12 @@ function ipSend(event) {
     const length = document.querySelector('#ipblock-length').value
 
     uploadData(ip, reason, ts, length)
+    document.querySelector('#ipblock-ip').value = ''
+    document.querySelector('#ipblock-reason').value = ''
+    document.querySelector('#ipblock-length').value = ''
   } else {
     console.error('Supabase library not loaded')
+    alert('Supabase library not loaded')
   }
 }
 

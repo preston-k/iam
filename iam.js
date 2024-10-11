@@ -66,6 +66,9 @@ function userDataTable() {
     document.getElementById('userinfotable').appendChild(table)
 })
 }
+function emails() {
+  
+}
 document.querySelector('#code').addEventListener('submit', (event) => {
   event.preventDefault()
   let code = document.querySelector('#codeinput').value
@@ -81,7 +84,7 @@ document.querySelector('#code').addEventListener('submit', (event) => {
   console.log(firebaseConfig)
   let app = firebase.initializeApp(firebaseConfig, 'app')
   database = app.database() 
-  
+  let emaillist
   database.ref('temp/').set({ sessid: self.crypto.randomUUID() })
     .then(() => {
       console.log('Write succeeded')
@@ -90,9 +93,24 @@ document.querySelector('#code').addEventListener('submit', (event) => {
       // USER IS SUCESSFULLY AUTHENTICATED: (EVERYTHING SHOULD HAPPEN IN THIS LOOP)
       let current = document.querySelector('#options')
       let add = ''
-      add += '<div id=\'cardholder\'><a href=\'javascript:userDataTable()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></a><a href=\'javascript:()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-list fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>View Recent Events</h1><p class=\'cardp\'>Generate a list of recent events that occured in the system.</p></div></div></a><a href=\'javascript:blockIp()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-hand fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Block an IP</h1><p class=\'cardp\'>Prevent a user from accessing all sites using their IP.</p></div></div></a></div>'
+      add += `<div id=\'cardholder\'><a href=\'javascript:userDataTable()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-user fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Load User Data</h1><p class=\'cardp\'>Generate a list of current user data, returns as a table.</p></div></div></a><a href=\'javascript:()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-list fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>View Recent Events</h1><p class=\'cardp\'>Generate a list of recent events that occured in the system.</p></div></div></a><a href=\'javascript:blockIp()\'><div class=\'card\'><div class=\'cardimg\'><i class="fa-solid fa-hand fa-8x card-fa-img"></i></div><div class=\'cardtext\'><h1 class=\'cardh1\'>Block an IP</h1><p class=\'cardp\'>Prevent a user from accessing all sites using their IP.</p></div></div></a></div><button id='emaillist'>Email List</button>
+      <input type='text' id='emaillist-copy' placeholder='Email List to Copy'></input>`
       current.innerHTML = add
-
+      document.querySelector('#emaillist').addEventListener('click', async () => {
+        console.log('emaillist')
+        await database.ref('users').on('value', (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const email = childSnapshot.child('info/e/').val()
+            console.log(email)
+            if (email != null) {
+              emaillist += `${email},`
+              document.querySelector('#emaillist-copy').value = emaillist.replace(undefined, '')
+            }
+            // console.log(emaillist).replace(undefined, '')
+          })
+        })
+        
+      })
       document.querySelector('#ipblock').innerHTML = `<h1>Block an IP Address</h1><form id='ipbanform'><input type='text' required placeholder='IP Address' class='longform' id='ipInput'></input><input type='text' id='reason' class='longform' required placeholder='Reason for Ban'></input><button type='submit' class='submitbut'>Block IP Address</button></form>`
     })
     .catch(error => alert(error.message))
